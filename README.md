@@ -20,7 +20,10 @@ lpic303
   - [4.7. Saving Changes Made to iptables](#47-saving-changes-made-to-iptables)
   - [4.8. Clearing All the Rules](#48-clearing-all-the-rules)
   - [4.9. Deleting Individual Rules](#49-deleting-individual-rules)
-- [refrence:](#refrence)
+  - [4.10. set and get acl for file](#410-set-and-get-acl-for-file)
+- [5. SELinux](#5-selinux)
+- [6. Reference SELinux:](#6-reference-selinux)
+- [7. Reference LPIC:](#7-reference-lpic)
 
 
 
@@ -138,8 +141,52 @@ iptables -D INPUT 4
 
 
 
+## 4.10. set and get acl for file
+```
+setfacl -R -d -m u:artisanuser:rwx storage
+```
+```
+setfacl -R -d -m g:www-data:rwx storage
+```
 
-# refrence:
+
+# 5. SELinux
+get status
+```
+getenforce
+```
+output:
+```
+Enforcing
+```
+
+```
+setenforce Permissive
+setenforce Enforcing
+```
+Log file : /var/log/audit/audit.log
+```
+tail -f /var/log/audit/audit.log
+```
+
+
+
+# 6. Reference SELinux:
+ - http://wiki.centos.org/HowTos/SELinux
+ - http://axilleas.me/en/blog/2013/selinux-policy-for-nginx-and-gitlab-unix-socket-in-fedora-19/
+ - https://gist.github.com/dnozay/3869050
+ - http://stackoverflow.com/questions/6795350/nginx-403-forbidden-for-all-files
+ - http://stackoverflow.com/questions/22586166/why-does-nginx-return-a-403-even-though-all-permissions-are-set-properly#answer-26228135
+
+
+
+
+
+
+
+
+
+# 7. Reference LPIC:
 ```
 https://github.com/Borosan/lpic3book
 
